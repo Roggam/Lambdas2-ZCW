@@ -19,11 +19,7 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
-    public void printPerson(){
 
-        System.out.println(this.name + " " + this.gender + " " +
-                            this.birthday + " " + this.emailAddress);
-    }
 
 
     public String getName() {
@@ -46,6 +42,12 @@ public class Person {
         return gender;
     }
 
+    public Integer getAge(){
+        LocalDate localDate = LocalDate.now();
+        return localDate.compareTo(getBirthday());
+
+    }
+
     public void setGender(Sex gender) {
         this.gender = gender;
     }
@@ -58,4 +60,18 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", gender=" + gender +
+                ", emailAddress='" + emailAddress + '\'' +
+                '}';
+    }
+
+    public void printPerson(){
+
+        System.out.println(this);
+    }
 }
